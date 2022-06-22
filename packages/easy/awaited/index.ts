@@ -15,5 +15,5 @@ type cases = [
 // @ts-expect-error
 type error = MyAwaited<number>
 
-type MyAwaited<T> = T extends Promise<infer K> ? MyAwaited<K>   : T;
-type res = MyAwaited<X>
+type MyAwaited<T extends Promise<any>> = T extends Promise<infer K> ? MyAwaited<K>   : T;
+type res = MyAwaited<Y>
